@@ -12,7 +12,7 @@ import java.util.Optional;
 public class OptionalExampleTwo {
     public static void main(String[] args) {
 
-        CountryData countryData = new CountryData();
+        CountryData countryData = new CountryData("A", "AA");
 //        Arrays.asList("A","B","C","D")
         countryData.setStates(null);
 
