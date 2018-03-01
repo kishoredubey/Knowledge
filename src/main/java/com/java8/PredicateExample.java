@@ -1,4 +1,4 @@
-package com.doit.java8;
+package com.java8;
 
 import java.util.function.Consumer;
 import java.util.function.Function;

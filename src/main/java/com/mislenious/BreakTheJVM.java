@@ -1,4 +1,4 @@
-package com.doit.mislenious;
+package com.mislenious;
 
 import java.util.ArrayList;
 import java.util.HashMap;

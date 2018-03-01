@@ -9,6 +9,20 @@ public class OptionalExampleOne {
 
     }
 
+    private void test() {
+        //before Java Optional
+        System.out.println(priceIsInRange(new Modem(9)));
+        System.out.println(priceIsInRange(new Modem(12)));
+        System.out.println(priceIsInRange(new Modem(20)));
+
+        //after java optional
+        System.out.println(priceIsInRangeOptional(new Modem(9)));
+        System.out.println(priceIsInRangeOptional(new Modem(12)));
+        System.out.println(priceIsInRangeOptional(new Modem(20)));
+    }
+
+
+
     public static boolean priceIsInRange(Modem modem) {
         boolean isInRange = false;
 
@@ -29,17 +43,6 @@ public class OptionalExampleOne {
                 .isPresent();
     }
 
-    private void test() {
-        //before Java Optional
-        System.out.println(priceIsInRange(new Modem(9)));
-        System.out.println(priceIsInRange(new Modem(12)));
-        System.out.println(priceIsInRange(new Modem(20)));
-
-        //after java optional
-        System.out.println(priceIsInRangeOptional(new Modem(9)));
-        System.out.println(priceIsInRangeOptional(new Modem(12)));
-        System.out.println(priceIsInRangeOptional(new Modem(20)));
-    }
 
     public class Modem {
         int price;
