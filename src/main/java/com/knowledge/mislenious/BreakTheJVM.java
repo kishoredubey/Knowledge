@@ -9,6 +9,7 @@ public class BreakTheJVM {
     public static void main(String[] args) {
         int i = 0;
         List list = new ArrayList(1000);
+        list.lastIndexOf(1);
         while (true){
             Map map = new HashMap();
             list.add(map);
