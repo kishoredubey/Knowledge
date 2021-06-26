@@ -31,7 +31,7 @@ fun main() {
     printPreOrder(root)
     println()
     println("----------------")
-    printZigZagBST(root)
+//    printZigZagBST(root)
 }
 
 fun printInOrder(root: Node?): Unit {
@@ -84,19 +84,6 @@ fun heightOfNode(root: Node?): Int {
     val left = heightOfNode(root.left) + 1
     val right = heightOfNode(root.right) + 1
     return abs(left - right)
-}
-
-fun isBST(root: Node): Boolean {
-    return isBSTUtil(root, Int.MIN_VALUE, Int.MAX_VALUE)
-}
-
-fun isBSTUtil(root: Node?, min: Int, max: Int): Boolean {
-    if (root == null) return true
-    return if (root.data in min..max) {
-        isBSTUtil(root.left, min, root.data) && isBSTUtil(root.right, root.data, max)
-    } else {
-        false
-    }
 }
 
 fun addNode(root: Node?, data: Int): Node {
