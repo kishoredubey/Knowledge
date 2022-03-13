@@ -6,29 +6,30 @@ import java.util.List;
 
 public class MinimumPlatform {
     public static void main(String[] args) {
-        int[] arr = {900, 940, 950, 1100, 1500, 1800};
-        int[] dep = {910, 1200, 1120, 1130, 1900, 2000};
+        int[] arr = {900, 940, 950, 1100, 1120, 1800};
+        int[] dep = {950, 1200, 1120, 1130, 1900, 2000};
         System.out.println(findPlatform(arr, dep));
     }
 
     static int findPlatform(int arr[], int dep[]) {
-        List<Integer> trackTrains = new ArrayList<Integer>();
+        List<Integer> arrivedTrains = new ArrayList<>();
         int platformCount = 0;
         for (int i = 0; i < arr.length; i++) {
-            if (trackTrains.size() == 0) {
-                trackTrains.add(i);
+            if (arrivedTrains.size() == 0) {
                 platformCount++;
             } else {
-                Iterator<Integer> it = trackTrains.listIterator();
+                Iterator<Integer> it = arrivedTrains.listIterator();
                 while(it.hasNext()) {
-                    if (dep[it.next().intValue()] > arr[i] && trackTrains.size() >= platformCount) {
-                        platformCount++;
+                    if (dep[it.next().intValue()] >= arr[i]) {
+                        if (arrivedTrains.size() >= platformCount) {
+                            platformCount++;
+                        }
                     } else {
                         it.remove();
                     }
                 }
-                trackTrains.add(i);
             }
+            arrivedTrains.add(i);
         }
         return platformCount;
     }
