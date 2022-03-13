@@ -31,7 +31,7 @@ fun searchMe(searchKey: Int, searchList: ArrayList<Int>): Int {
 fun rotated(searchKey: Int, searchList: ArrayList<Int>, left: Int, right: Int): Int {
     if (left > right) return -1
 
-    val mid = left + right
+    val mid = left + right / 2
     if (searchList[mid] == searchKey) return mid
 
     return if (searchList[mid] >= searchList[left]) {
