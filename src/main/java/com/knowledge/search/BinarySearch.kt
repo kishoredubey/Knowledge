@@ -10,14 +10,14 @@ fun main() {
     ) { LOG_MESSAGE.format(4) }
 
     customAssertMe(
-        Int.MAX_VALUE,
-        binarySearchMe(232, arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9))
-    ) { LOG_MESSAGE.format(0) }
+        8,
+        binarySearchMe(9, arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9))
+    ) { LOG_MESSAGE.format(8) }
 }
 
 fun binarySearchMe(searchKey: Int, searchList: ArrayList<Int>): Int {
-    if (searchList.isNullOrEmpty()) return Int.MAX_VALUE
-    var start = 0
+    if (searchList.isNullOrEmpty()) return -1
+    var start = 0;
     var end = searchList.size - 1
 
     while (start <= end) {
@@ -34,5 +34,5 @@ fun binarySearchMe(searchKey: Int, searchList: ArrayList<Int>): Int {
             }
         }
     }
-    return Int.MAX_VALUE
+    return -1
 }

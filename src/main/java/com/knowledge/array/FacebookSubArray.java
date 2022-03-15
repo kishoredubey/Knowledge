@@ -3,13 +3,13 @@ package com.knowledge.array;
 public class FacebookSubArray {
 
     public static void main(String[] args) {
-        int[] out = countSubarrays(new int[]{3, 4, 1, 6, 2});
+        int[] out = countSubArrays(new int[]{3, 4, 1, 6, 2});
         for (int i = 0; i < out.length; i++) {
             System.out.print(out[i] + " ");
         }
     }
 
-    static int[] countSubarrays(int[] arr) {
+    static int[] countSubArrays(int[] arr) {
         int[] out = new int[arr.length];
         for (int i = 0; i < arr.length; i++) {
             int count = 1;
