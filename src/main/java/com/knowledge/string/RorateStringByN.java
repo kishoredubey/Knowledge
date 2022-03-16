@@ -1,6 +1,6 @@
 package com.knowledge.string;
 
-public class TorateStringByN {
+public class RorateStringByN {
 
     public static void main(String[] args) {
         System.out.println(rotationalCipher("Zebra-493?", 3));

@@ -17,13 +17,13 @@ just by removing one character
  */
 
 fun main() {
-    println("${maketItPalindrom("abcbea")}")
-    println("${maketItPalindrom("abecbea")}")
-    println("${maketItPalindrom("abcba")}")
-    println("${maketItPalindrom("1407741")}")
+    println("${makeItPalindrome("abcbea")}")
+    println("${makeItPalindrome("abecbea")}")
+    println("${makeItPalindrome("abcba")}")
+    println("${makeItPalindrome("1407741")}")
 }
 
-fun maketItPalindrom(s: String): Int {
+fun makeItPalindrome(s: String): Int {
     var low = 0
     var high = s.length - 1
 

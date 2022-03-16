@@ -1,8 +1,5 @@
 package com.knowledge.sorting;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MergeSort {
     public static void main(String[] args) {
         int[] arr = new int[]{3, 1, 0, 9, 4, 7, 9};
