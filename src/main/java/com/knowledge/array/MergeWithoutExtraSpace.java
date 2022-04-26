@@ -2,6 +2,7 @@ package com.knowledge.array;
 
 public class MergeWithoutExtraSpace {
     public static void main(String[] args) {
+        System.getProperty("os.name");
         int[] a = {1, 3, 5, 7};
         int[] b = {0, 2, 6, 8, 9};
         merge(a, b, a.length, b.length);
