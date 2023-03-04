@@ -1,0 +1,19 @@
+name: Hello World Workflow
+
+on:
+  push:
+    branches:
+      master
+  workflow_dispatch:
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: hello
+        run: echo "Hello Kishore"
+        shell: bash
+  bye:
+    steps:
+      - name: bye
+        run: echo "Bye Kishore"
+        shell: bash
