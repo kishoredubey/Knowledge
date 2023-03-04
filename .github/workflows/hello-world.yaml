@@ -1,5 +1,4 @@
 name: Hello World Workflow
-
 on:
   push:
     branches:
@@ -13,6 +12,7 @@ jobs:
         run: echo "Hello Kishore"
         shell: bash
   bye:
+    runs-on: ubuntu-latest
     steps:
       - name: bye
         run: echo "Bye Kishore"
