@@ -1,52 +1,51 @@
 package com.knowledge.algo;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.SplittableRandom;
+import java.util.*;
 
-class ProbabilityRange {
-    int begin;
-    int end;
+class Discount {
+    int percentage;
+    int weight; // This is the percentage of users this applies to
 
-    public ProbabilityRange(int begin, int end) {
-        this.begin = begin;
-        this.end = end;
+    public Discount(int percentage, int weight) {
+        this.percentage = percentage;
+        this.weight = weight;
     }
 }
 
-class DiscountObject {
-    int discountPercentage;
-    ProbabilityRange probability;
+public class DiscountSelector {
+    private static final SplittableRandom random = new SplittableRandom();
+    private final NavigableMap<Integer, Integer> probabilityMap = new TreeMap<>();
+    private int totalWeight = 0;
 
-    public DiscountObject(int discountPercentage, ProbabilityRange probability) {
-        this.discountPercentage = discountPercentage;
-        this.probability = probability;
+    public DiscountSelector(List<Discount> discounts) {
+        for (Discount d : discounts) {
+            if (d.weight <= 0) continue;
+            totalWeight += d.weight;
+            probabilityMap.put(totalWeight, d.percentage); // cumulative range
+        }
+        if (totalWeight != 100) {
+            throw new IllegalArgumentException("Total discount weight must be 100%");
+        }
     }
-}
 
-public class ProbabilityOfDiscounts {
+    public int getDiscount() {
+        int rand = random.nextInt(1, totalWeight + 1); // 1 to 100 inclusive
+        return probabilityMap.ceilingEntry(rand).getValue();
+    }
+
     public static void main(String[] args) {
-        List<DiscountObject> objects = new ArrayList<>();
+        List<Discount> discounts = List.of(
+            new Discount(10, 70),
+            new Discount(20, 20),
+            new Discount(30, 10)
+        );
 
+        DiscountSelector selector = new DiscountSelector(discounts);
 
-        objects.add(new DiscountObject(30, new ProbabilityRange(0, 1)));
-        objects.add(new DiscountObject(20, new ProbabilityRange(2, 20)));
-        objects.add(new DiscountObject(10, new ProbabilityRange(20, 100)));
+        // Simulate discount selection
         for (int i = 0; i < 20; i++) {
-            System.out.println(findDiscount(objects));
+            System.out.println(selector.getDiscount());
         }
-    }
-
-    private static int findDiscount(List<DiscountObject> objects) {
-        SplittableRandom generator = new SplittableRandom();
-        int probability = generator.nextInt(0, 100);
-        DiscountObject out = null;
-        for (DiscountObject object : objects) {
-            if (object.probability.begin <= probability && object.probability.end >= probability) {
-                out = object;
-                break;
-            }
-        }
-        return out.discountPercentage;
     }
 }
+
